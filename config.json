@@ -1,0 +1,9 @@
+{
+    "port": "65523",
+    "content_page_path": "./content/",
+    "error_page_path": "./content/error/",
+    "template_path": "./templates/",
+    "template": "main.template",
+    "css_path": "./css/",
+    "css": "style.css"
+}

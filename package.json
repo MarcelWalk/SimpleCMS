@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "glob": "^7.1.6",
     "ip": "^1.1.5",
+    "nconf": "^0.10.0",
+    "serve-favicon": "^2.5.0",
     "showdown": "^1.9.1"
   }
 }
