@@ -1,3 +1,5 @@
 # Hello World!
 I'm alive and will become a simple markdown CMS  
-Test123
+
+## Why
+Just because I can and really like the Ghost CMS
