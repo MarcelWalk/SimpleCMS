@@ -1,11 +1,11 @@
 const express = require('express');
-var ip = require("ip");
+const ip = require("ip");
 const fs = require('fs')
-var showdown = require('showdown');
-var favicon = require('serve-favicon')
-var nconf = require('nconf');
-var path = require('path')
-var glob = require("glob")
+const showdown = require('showdown');
+const favicon = require('serve-favicon')
+const nconf = require('nconf');
+const path = require('path')
+const glob = require("glob")
 
 var app = express();
 
@@ -95,7 +95,6 @@ function getMdFileNames(baseDir) {
             allFiles.push(element.substring(element.lastIndexOf("/") + 1));
         });
 
-    console.log(allFiles);
     return allFiles;
 }
 

@@ -1,0 +1,29 @@
+.navbar{
+    background-color:#1C2025;
+}
+
+body{
+    background-color: #1D2227;
+    color: whitesmoke;
+}
+
+pre code{
+    color: whitesmoke;
+}
+
+code{
+    color: whitesmoke;
+}
+
+a{
+    color: whitesmoke;
+}
+
+a:hover{
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+.container{
+    padding-top: 20px;
+}
