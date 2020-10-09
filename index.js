@@ -23,7 +23,7 @@ app.use(favicon(nconf.get("content_page_path") + 'favicon.ico'))
 app.get('/*', function (req, res) {
 
     //Get all files in content folder so I can use it in the nav later
-    getMdFileNames(nconf.get("content_page_path"))
+    var files = getMdFileNames(nconf.get("content_page_path"))
 
     let fileName;
 
@@ -45,7 +45,7 @@ app.get('/*', function (req, res) {
 
         //Check if file exists
         if (fs.existsSync(fileName)) {
-            
+
             //Get text from md file
             var data = getFileText(fileName)
 
@@ -55,8 +55,9 @@ app.get('/*', function (req, res) {
             //Fill template with custom css and converted md data
             let template = getFileText(nconf.get("template_path") + nconf.get("template"));
             let html = template.replace("@body", htmlBodyData)
+            html = html.replace("@title", req.url.substring(1) ? req.url.substring(1) : "Home")
             html = html.replace("@css", '<link rel="stylesheet" href="' + nconf.get("css_path") + nconf.get("css") + '">')
-
+            html = html.replace("@navigation", buildNavHtml(files));
             //Serve filled template
             res.send(html);
 
@@ -86,11 +87,27 @@ function getFileText(fileName) {
 
 //Gets all md files from a directory
 function getMdFileNames(baseDir) {
-    glob(baseDir + "/*.md", function (er, files) {
-        files.forEach(element => {
-            console.log(element.substring(element.lastIndexOf("/") + 1));
+
+    let allFiles = new Array();
+
+    let files = glob.sync(baseDir + "/*.md",)
+    files.forEach(element => {
+            allFiles.push(element.substring(element.lastIndexOf("/") + 1));
         });
-    })
+
+    console.log(allFiles);
+    return allFiles;
+}
+
+//Builds the html for the navbar
+function buildNavHtml(fileNames) {
+    let listItems = "";
+
+    fileNames.forEach(el => {
+        let pageName = el.substring(0, el.lastIndexOf("."));
+        listItems = listItems + '<li class="nav-item"><a class="nav-link" href="' + pageName + '">' + pageName + '</a></li>\n'
+    });
+    return '<ul class="nav">' + listItems + '</ul>'
 }
 
 console.log("Listening on:");
