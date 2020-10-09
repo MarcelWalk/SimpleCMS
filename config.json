@@ -1,9 +1,10 @@
 {
     "port": "65523",
-    "content_page_path": "./content/",
-    "error_page_path": "./content/error/",
-    "template_path": "./templates/",
+    "content_page_path": "./customization/content/",
+    "error_page_path": "./customization/content/error/",
+    "template_path": "./customization/templates/",
     "template": "main.template",
-    "css_path": "./css/",
-    "css": "style.css"
+    "css_path": "./customization/css/",
+    "css": "style.css",
+    "password": "insecure"
 }

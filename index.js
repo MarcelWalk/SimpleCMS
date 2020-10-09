@@ -6,6 +6,8 @@ const favicon = require('serve-favicon')
 const nconf = require('nconf');
 const path = require('path')
 const glob = require("glob")
+const cookieParser = require('cookie-parser'); 
+const basicAuth = require('express-basic-auth');
 
 var app = express();
 

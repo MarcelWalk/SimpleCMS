@@ -3,6 +3,6 @@
     - [x] Handeling favicon
 - [x] Templates
 - [x] Custom CSS
-- [ ] Navbar for navigating between pages
+- [x] Navbar for navigating between pages
 - [ ] Admin Login
 - [ ] Upload of Custom CSS / MD Files
